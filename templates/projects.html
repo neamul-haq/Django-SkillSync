@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10 p-3">
+            <div class="d-flex flex-wrap pt-5 justify-content-center">
+                {% for project in data %}
+                <div class="col-sm-4">
+                    <div class="card m-2">
+                        <div class="card-body">
+                            <img src="{{project.screenshots.url}}" class="card-img-top" alt="Project Screenshot">
+                            <h5 class="card-title">
+                                <a href="{% url 'detail_project' project.id %}" class="text-decoration-none text-dark" target="_blank">
+                                    {{project.title}}
+                                </a>
+                            </h5>
+                            <p class="card-text">{{project.description |truncatewords:10}}</p>
+                            <p>Author: {{project.author.first_name}} {{project.author.last_name}}</p>
+                            <p>Category: {{project.category}}</p>
+                            <p>Technologies used: {{project.technologies}}</p>
+                            <p>Avg Rating: {{project.average_rating}}</p>
+                            <span class="btn btn-secondary">
+                                <a href="{{project.live_site_link}}" class="text-decoration-none text-white" target="_blank">
+                                    Live Site: CLICK HERE
+                                </a>
+                            </span>
+                            <br><br>
+                            <a class="nav-link btn btn-dark text-white" href="{% url 'add_rating' project.id %}">
+                                Rate This
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

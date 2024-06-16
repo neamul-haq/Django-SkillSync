@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card-body m-2 p-2 text-center">
+        <img src="{{object.screenshots.url}}" class="card-img-top" alt="Project Screenshot" />
+        <hr>
+        <h5 class="card-title">
+          <a href="{% url 'detail_project' object.id %}" class="text-decoration-none text-dark">
+            {{object.title}}
+          </a>
+        </h5>
+        <p class="card-text">{{object.description}}</p>
+        <p>Author : {{object.author.first_name}} {{object.author.last_name}}</p>
+        <p>Category: {{object.category}}</p>
+        <p>Technologies used: {{object.technologies}}</p>
+        <p>Avg Rating: {{object.average_rating}}</p>
+        <p>Number of people Rate this: {{object.RatePeopleNo}}</p>
+        <span class="btn btn-secondary">
+          <a href="{{object.live_site_link}}" class="text-decoration-none text-white" target="_blank">
+            Live Site : CLICK HERE
+          </a>
+        </span>
+        <br /><br />
+        <a class="nav-link btn btn-dark text-white" href="{% url 'add_rating' object.id%}">
+          Rate This
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

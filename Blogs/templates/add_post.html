@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<form
+  style="width: 50%; margin: auto"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <h1>Add Blog</h1>
+  {% csrf_token %} {{form | crispy}}
+
+  <button class="btn btn-warning">Submit</button>
+</form>
+
+<div class="container">
+  <div class="col-12">
+    <h1 class="text-center">My BLOGS</h1>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12 p-3">
+        <div class="d-flex flex-wrap justify-content-center">
+          {% for post in data %}
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+              <img src="{{post.image.url}}" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">
+                  <a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark">{{post.title}}</a>
+                </h5>
+                <p class="card-text">{{post.content |truncatewords:10}}</p>
+                <p>Author: {{post.author.first_name}} {{post.author.last_name}}</p>
+                <div class="text-center">
+                  <a href="{% url 'edit_post' post.id %}" class="btn btn-warning mx-1">Edit</a>
+                  <a href="{% url 'delete_post' post.id %}" class="btn btn-danger mx-1">Delete</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

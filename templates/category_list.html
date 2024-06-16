@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mt-4">Project Categories</h2>
+    <hr>
+
+    <div class="list-group mt-3">
+        {% for category in categories %}
+        <a href="{% url 'projects' %}?category={{ category.0 }}" class="list-group-item list-group-item-action">{{ category.1 }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

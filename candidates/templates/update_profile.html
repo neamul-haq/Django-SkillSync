@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<form style="width: 50%; margin: auto" method="post" enctype="multipart/form-data">
+  
+  {% csrf_token %}
+  {% if profile.profile_picture %}
+  <img src="{{profile.profile_picture.url}}" style="width: 30%; margin: auto">
+  {% endif %}
+  
+  <a class="btn btn-warning btn-sm" href="{% url 'pass_change' %}"
+    >Change Your Password</a
+  >
+  {{ profile_form | crispy}}
+  {{ user_form|crispy }}
+    
+
+  <button class="btn btn-warning mb-5">Save Changes</button>
+</form>
+
+{% endblock %}

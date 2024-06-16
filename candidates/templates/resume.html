@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<form style="width: 50%; margin: auto" method="post" enctype="multipart/form-data">
+  
+  {% csrf_token %}
+
+  {% if profile.cv %}
+        <p><strong>Current Resume:</strong> <a href="{{ profile.cv.url }}" target="_blank">View Current Resume</a></p>
+    {% else %}
+        <p>No resume uploaded yet.</p>
+    {% endif %}
+
+  {{ resume_form | crispy}}
+    
+
+  <button class="btn btn-warning mb-5">Update Resume</button>
+</form>
+
+{% endblock %}
