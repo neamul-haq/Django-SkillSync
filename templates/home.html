@@ -1,32 +1,42 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
 
-<div class="d-flex flex-wrap px-5 pt-3 align-items-center">
-  <div class="col-6">
-    <h1>Welcome to SkillSync</h1>
-    <h4>---Build your Portfolio</h4>
-    <p>
-      SkillSync is a versatile portfolio publishing and editing platform,
-      tailored to highlight an admin's professional achievements, skills, and
-      insights. The pation of roles enhances.</p>
-      
-      <p>security and integrity of the admin's content. The platform also includes
-        a project showcase feature, allowing the admin to add and organize
-        projects with detailed information such as titles,roject has a detailed
-        page that provides comprehensive write and publish
-        posts about their wond social media links, along with a contact form for
-        inquiries or messages</p>
-    
-    <p>
-      SkillSyt is displayed, and projects can be sorted by rating, helping
-      viewers to identify the most acclaimed work quickly. Finally, the platform
-      is designed for deployment on a secure and scalable hosting platform,
-      ensuring that the portfolio is accessible and performs well under various
-      conditions.
-    </p>
-  </div>
-  <div class="col-6" style="height: 500px">
-    <img src="{% static 'header.jpeg' %}" />
+{% block content %}
+<br>
+<div class="d-flex justify-content-center align-items-center vh-60">
+  <div class="row w-100 justify-content-center">
+    <div class="col-md-6 d-flex flex-column justify-content-center">
+      <h1 class="text-center">Welcome to SkillSync</h1>
+      <h4 class="text-center mb-4">---Build your Portfolio</h4>
+      <strong><p class="text-center">
+        SkillSync is a versatile portfolio publishing and editing platform,
+        tailored to highlight an admin's professional achievements, skills, and
+        insights. The partition of roles enhances.
+      </p></strong>
+    </div>
   </div>
 </div>
-
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <h1>Blogs You Can Overview!</h1>
+    <div class="col-10 p-3">
+      <div class="d-flex flex-wrap justify-content-center pt-5">
+        {% for post in data %}
+        <div class="col-sm-4">
+          <div class="card m-2">
+            <div class="card-body">
+              <img src="{{ post.image.url }}" class="card-img-top" alt="...">
+              <h5 class="card-title">
+                <a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark" target="_blank">{{ post.title }}</a>
+              </h5>
+              <p class="card-text">{{ post.content|truncatewords:10 }}</p>
+              <p>Author: {{ post.author.first_name }} {{ post.author.last_name }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
