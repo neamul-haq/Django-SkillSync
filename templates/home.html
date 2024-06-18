@@ -20,16 +20,30 @@
                     page that provides comprehensive write-ups and social media links, along with a contact form for
                     inquiries or messages.
                 </p>
-                <p>
-                    SkillSync displays projects sorted by rating, helping
-                    viewers to identify the most acclaimed work quickly. Finally, the platform
-                    is designed for deployment on a secure and scalable hosting platform,
-                    ensuring that the portfolio is accessible and performs well under various
-                    conditions.
-                </p>
             </div>
         </div>
     </div>
 </div>
-
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <h1>Blogs You Can Overview!</h1>
+    <div class="col-10 p-3">
+      <div class="d-flex flex-wrap justify-content-center pt-5">
+        {% for post in data %}
+        <div class="col-sm-4">
+          <div class="card m-2">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a href="{% url 'detail_post' post.id %}" class="text-decoration-none text-dark" target="_blank">{{ post.title }}</a>
+              </h5>
+              <p class="card-text">{{ post.content|truncatewords:10 }}</p>
+              <p>Author: {{ post.author.first_name }} {{ post.author.last_name }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
