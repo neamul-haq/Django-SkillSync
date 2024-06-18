@@ -1,32 +1,35 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-<div class="d-flex flex-wrap px-5 pt-3 align-items-center">
-  <div class="col-6">
-    <h1>Welcome to SkillSync</h1>
-    <h4>---Build your Portfolio</h4>
-    <p>
-      SkillSync is a versatile portfolio publishing and editing platform,
-      tailored to highlight an admin's professional achievements, skills, and
-      insights. The pation of roles enhances.</p>
-      
-      <p>security and integrity of the admin's content. The platform also includes
-        a project showcase feature, allowing the admin to add and organize
-        projects with detailed information such as titles,roject has a detailed
-        page that provides comprehensive write and publish
-        posts about their wond social media links, along with a contact form for
-        inquiries or messages</p>
-    
-    <p>
-      SkillSyt is displayed, and projects can be sorted by rating, helping
-      viewers to identify the most acclaimed work quickly. Finally, the platform
-      is designed for deployment on a secure and scalable hosting platform,
-      ensuring that the portfolio is accessible and performs well under various
-      conditions.
-    </p>
-  </div>
-  <div class="col-6" style="height: 500px">
-    <img src="{% static 'header.jpeg' %}" />
-  </div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="text-center">
+                <h1>Welcome to SkillSync</h1>
+                <h4 class="mb-4">---Build your Portfolio</h4>
+                <p>
+                    SkillSync is a versatile portfolio publishing and editing platform,
+                    tailored to highlight an admin's professional achievements, skills, and
+                    insights. The pation of roles enhances.
+                </p>
+                <p>
+                    Security and integrity of the admin's content. The platform also includes
+                    a project showcase feature, allowing the admin to add and organize
+                    projects with detailed information such as titles, descriptions, and images. Each project has a detailed
+                    page that provides comprehensive write-ups and social media links, along with a contact form for
+                    inquiries or messages.
+                </p>
+                <p>
+                    SkillSync displays projects sorted by rating, helping
+                    viewers to identify the most acclaimed work quickly. Finally, the platform
+                    is designed for deployment on a secure and scalable hosting platform,
+                    ensuring that the portfolio is accessible and performs well under various
+                    conditions.
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
