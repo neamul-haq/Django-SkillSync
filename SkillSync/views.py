@@ -11,8 +11,7 @@ def projects(request):
     return render(request, 'projects.html', {'data' : data})
 
 def home(request):
-    data = Post.objects.all()
-    return render(request, 'home.html', {'data' : data})
+    return render(request, 'home.html')
 
 def category_list(request):
     categories = Project.CATEGORY_CHOICES
