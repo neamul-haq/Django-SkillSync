@@ -129,9 +129,9 @@ STATIC_URL = 'static/'
 STATIC_ROOT =  BASE_DIR / 'static'
 # print(STATIC_ROOT)
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
