@@ -1,11 +1,12 @@
 {% extends 'base.html' %} 
 {% load static %}
 {% block content %}
-
+<br>
+<h1 class="btn btn-secondary" style="width:70%; margin-left:15%; background-color:rgba(108, 122, 137)">BLOGs!</h1>
 <div class="container">
   <div class="d-flex justify-content-center">
-    <div class="col-10 p-3">
-      <div class="d-flex flex-wrap justify-content-center pt-5">
+    <div class="col-10 p-1">
+      <div class="d-flex flex-wrap justify-content-center pt-3">
         {% for post in data %}
         <div class="col-sm-4">
           <div class="card m-2">

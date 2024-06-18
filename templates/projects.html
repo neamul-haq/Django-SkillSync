@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
+<br>
+
 <div class="container">
+    
     <div class="row justify-content-center">
-        <div class="col-10 p-3">
-            <div class="d-flex flex-wrap pt-5 justify-content-center">
+        <h1 class="btn btn-secondary" style="width:80%">PROJECTs!</h1>
+        <div class="col-10 p-1">
+            <div class="d-flex flex-wrap pt-3 justify-content-center">
                 {% for project in data %}
                 <div class="col-sm-4">
                     <div class="card m-2">
